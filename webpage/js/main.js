@@ -301,7 +301,7 @@ function draw_init() {
                     show: false
                 },
                 min: 0,
-                max: 120
+                max:  'dataMax' //动态缩放纵轴
             },
             {
                 type: 'value',
