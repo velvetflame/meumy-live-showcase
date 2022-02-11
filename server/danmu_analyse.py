@@ -1,4 +1,4 @@
-import json, datetime, time, os, re, jieba, jieba.analyse
+import json, datetime, time, os, re, jieba, jieba.analyse, sys
 from collections import Counter
 from functools import cmp_to_key
 from scipy.signal import savgol_filter
@@ -384,5 +384,7 @@ while cur<=date_range[1]:
 if __name__ == "__main__":
     while True:
         dir_update()
-        time.sleep(10*60)
+        sys.exit("更新完毕");
+#         time.sleep(5*60)
+
 
