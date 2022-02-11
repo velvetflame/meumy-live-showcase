@@ -4,125 +4,85 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/favicon.png" type="image/x-icon" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.2/dist/echarts.min.js" integrity="sha256-TI0rIaxop+pDlHNVI6kDCFvmpxNYUnVH/SMjknZ/W0Y=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js" integrity="sha256-In3CN7ZURQJ4NLxir70iD0vfibxQzEUvK/U5EUFnhU8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <link href="js/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="js/echarts.min.js" integrity="sha256-TI0rIaxop+pDlHNVI6kDCFvmpxNYUnVH/SMjknZ/W0Y=" crossorigin="anonymous"></script>
+    <script src="js/fuse.min.js" integrity="sha256-In3CN7ZURQJ4NLxir70iD0vfibxQzEUvK/U5EUFnhU8=" crossorigin="anonymous"></script>
+    <script src="js/vue@2.6.12"></script>
     <script src="js/moment.min.js"></script>
-    <title>MeUmy草原自动路灯</title>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+     var hm = document.createElement("script");
+     hm.src = "https://hm.baidu.com/hm.js?dc3f36239cdff4ed759163807420d6d7";
+     var s = document.getElementsByTagName("script")[0]; 
+     s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+    <title>冰屋路灯</title>
     <style>[v-cloak] {display: none;}</style>
   </head>
   <body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">
-          <img src="/pic/icon.svg" alt=""height="32">
-          MeUmy草原自动路灯
-        </span>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown">呜米</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="https://live.bilibili.com/22384516" target="_blank">直播间</a></li>
-                <li><a class="dropdown-item" href="https://space.bilibili.com/617459493" target="_blank">个人主页</a></li>
-                <li><a class="dropdown-item" href="https://weibo.com/u/7079069131" target="_blank">微博 @呜米嗷呜</a></li>
-                <li><a class="dropdown-item" href="https://mht.meumy.club/" target="_blank">提问箱 @MeUmy的棉花糖</a></li>
-                <li><a class="dropdown-item" href="https://music.163.com/#/user/home?id=1306304320" target="_blank">网易云 @呜米嗷嗷嗷</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown">咩栗</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="https://live.bilibili.com/8792912" target="_blank">直播间</a></li>
-                <li><a class="dropdown-item" href="https://space.bilibili.com/745493" target="_blank">个人主页</a></li>
-                <li><a class="dropdown-item" href="https://weibo.com/u/7080286241" target="_blank">微博 @电击咩阿栗</a></li>
-                <li><a class="dropdown-item" href="https://mht.meumy.club/" target="_blank">提问箱 @MeUmy的棉花糖</a></li>
-                <li><a class="dropdown-item" href="https://music.163.com/#/user/home?id=1356709812" target="_blank">网易云 @咩栗咩咩咩</a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="https://space.bilibili.com/674421433" target="_blank">呜米咩栗的草原组</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://space.bilibili.com/674622242" target="_blank">MeUmy官方录播组</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://meumy.club/" target="_blank">MeUmy草原平行时空</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
     <div class="container" id="app" v-cloak>
       <div class="p-4 p-md-5 mb-4 rounded-bottom bg-white row">
         <div class="col-lg-8 px-0">
-          <h1 class="display-4 font-italic">自动路灯来辣！</h1>
-          <p class="lead my-3">分析直播弹幕，统计热点词语，方便没时间看直播的单推人和切片man~</p>
-          <div class="row g-1 mb-3">
-            <div class="col-auto col-form-label fw-bold">选择时间：</div>
+          <h1 class="display-4 font-italic">冰屋自动路灯</h1>
+          <p class="lead my-3">本项目源于MeUmy草原自动路灯<a href="https://github.com/K-bai/meumy-live-showcase" target="_blank">Git仓库</a><br>在这里跪谢八角老师的鼎力支持和项目开源
+          </p>
+          <div class="row g-1" style="position: fixed; left: 20px; bottom: 0px; z-index:10;border:1px solid rgba(0,0,0,.125); border-radius:.25rem; background-color: rgba(79,139,174,.75); margin:.25rem 0px !important;">
             <div class="col-auto">
-              <select class="form-select" v-model="vup_id" id="vup_list">
-                <option selected value="22384516">呜米</option>
-                <option value="8792912">咩栗</option>
+              <select class="form-select" v-model="vup_id" id="vup_list" style="display:none;">
+                <!--<option selected value="22384516">呜米</option>-->
+                <!--<option value="8792912">咩栗</option>-->
+                <option selected value="24393">雪狐</option>
+                <option value="21732370">Betty</option>
               </select>
             </div>
-            <div class="col-auto">
+            <div class="col-auto" style="margin-bottom:3px;">
               <select class="form-select" v-model="date_n" id="date_list">
                 <option selected :value="item.val" v-for="item in date_list">{{item.str}}</option>
               </select>
             </div>
             <div class="col-auto">
-              <a class="btn btn-outline-primary" href="https://space.bilibili.com/674622242/" target="_blank" id="jump_to_recording">打开当日录播</a>
+              <a class="form-control" href="https://www.bilibili.com/video/BV1Rh411q7Ju" target="_blank" style="display:none;">打开录播</a>
             </div>
-            <div class="col-auto">
-              <div class="spinner-border" role="status" id="loading_icon">
-                <span class="visually-hidden">Loading...</span>
-              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 px-0" id="umy_profile" v-if="vup_id==22384516">
+        <div class="col-lg-4 " id="umy_profile" v-if="vup_id==24393">
           <div class="row">
             <div class="col-5 text-end">
-              <img src="/pic/umy_profile.jpg" class="img-fluid img-thumbnail" alt="Umy profile">
+              <img src="/pic/xuehu_profile.jpg" class="img-fluid img-thumbnail" alt="Umy profile">
             </div>
             <div class="col-7 d-flex flex-column">
-              <h5>呜米-光能雪狼</h5>
-              可以给她咬吗？
+              <h5>雪狐</h5>
+              请吃寿桃
               <div class="pt-auto align-self-end mt-auto">
                 <div class="btn-group" role="group">
-                  <a class="btn btn-outline-primary" href="https://space.bilibili.com/617459493" target="_blank">主页</a>
-                  <a class="btn btn-outline-primary" href="https://live.bilibili.com/22384516" target="_blank">直播间</a>
+                  <a class="btn btn-outline-primary" href="https://space.bilibili.com/477792" target="_blank">主页</a>
+                  <a class="btn btn-outline-primary" href="https://live.bilibili.com/24393" target="_blank">直播间</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 px-0" id="merry_profile" v-if="vup_id==8792912">
+        <div class="col-lg-4 px-0" id="merry_profile" v-if="vup_id==21732370">
           <div class="row">
             <div class="col-5 text-end">
-              <img src="/pic/merry_profile.jpg" class="img-fluid img-thumbnail" alt="Merry profile">
+              <img src="/pic/betty_profile.jpg" class="img-fluid img-thumbnail" alt="Merry profile">
             </div>
             <div class="col-7 d-flex flex-column">
-              <h5>咩栗-电击小羊</h5>
-              可以给她草吗？
+              <h5>星陵Betty</h5>
               <div class="pt-auto align-self-end mt-auto">
                 <div class="btn-group" role="group">
-                  <a class="btn btn-outline-primary" href="https://space.bilibili.com/745493" target="_blank">主页</a>
-                  <a class="btn btn-outline-primary" href="https://live.bilibili.com/8792912" target="_blank">直播间</a>
+                  <a class="btn btn-outline-primary" href="https://space.bilibili.com/323774877" target="_blank">主页</a>
+                  <a class="btn btn-outline-primary" href="https://live.bilibili.com/21732370" target="_blank">直播间</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card card-body p-4 text-center mb-0 container">
-        <h4 class="pb-2">{{words_title}}</h4>
-        <div id="main_word1"><span class="fs-3">{{all_hot_words.all[1]}}</span><span class="fs-1 fw-bold px-4">{{all_hot_words.all[0]}}</span><span class="fs-5">{{all_hot_words.all[2]}}</span></div> 
-        <div id="main_word2" class="text-secondary"><span class="px-2">{{all_hot_words.all[3]}}</span><span class="px-2">{{all_hot_words.all[4]}}</span><span class="px-2">{{all_hot_words.all[5]}}</span><span class="px-2">{{all_hot_words.all[6]}}</span><span class="px-2">{{all_hot_words.all[7]}}</span><span class="px-2">{{all_hot_words.all[8]}}</span><span class="px-2">{{all_hot_words.all[9]}}</span></div>
-      </div>
-      <div class="form-check form-switch text-start mt-2 mb-4 text-secondary">
-        <input class="form-check-input" type="checkbox" v-model="show_key_words" id="show_key_words">
-        <label class="form-check-label" for="show_key_words">显示直播弹幕关键词(Beta)</label>
-      </div>
+        <br>
       <div id="main_chart" class="container" style="height:420px;"></div>
       <div class="card card-body  p-4 my-4 container">
         <h4>图表属性</h4>
@@ -217,6 +177,7 @@
         </div>
       </div>
       <div class="card card-body  p-4 my-4 container text-secondary">
+        <p style="font-weight:600;">因历史数据导入时出错，所有数据除以3为正确，2021-11-4后数据正常</p>
         使用小提示：<br />
         鼠标滚轮（或双指缩放）调整时间轴比例，悬停（或点击）显示弹幕热词与醒目留言。<br />
         醒目留言小圆点可能会重叠，把时间轴放大再看会比较好！<br />
@@ -224,8 +185,17 @@
         对于录播分片的情况，可把直播开始时间设为对应分片的开始时间，使时间轴统一。<br />
         直播弹幕关键词(Beta)功能基于2021年8月前全部直播弹幕数据对当天弹幕关键词进行分析，仅供参考。
       </div>
+      <div class="card card-body p-4 text-center mb-0 container">
+        <h4 class="pb-2">{{words_title}}</h4>
+        <div id="main_word1"><span class="fs-3">{{all_hot_words.all[1]}}</span><span class="fs-1 fw-bold px-4">{{all_hot_words.all[0]}}</span><span class="fs-5">{{all_hot_words.all[2]}}</span></div> 
+        <div id="main_word2" class="text-secondary"><span class="px-2">{{all_hot_words.all[3]}}</span><span class="px-2">{{all_hot_words.all[4]}}</span><span class="px-2">{{all_hot_words.all[5]}}</span><span class="px-2">{{all_hot_words.all[6]}}</span><span class="px-2">{{all_hot_words.all[7]}}</span><span class="px-2">{{all_hot_words.all[8]}}</span><span class="px-2">{{all_hot_words.all[9]}}</span></div>
+      </div>
+      <div class="form-check form-switch text-start mt-2 mb-4 text-secondary">
+        <input class="form-check-input" type="checkbox" v-model="show_key_words" id="show_key_words">
+        <label class="form-check-label" for="show_key_words">显示直播弹幕关键词(Beta)</label>
+      </div>
       <div class="card card-body mt-4 text-center">
-        <h5>🌟揉爪爪夸夸榜🌟</h5>
+        <h5>贴贴榜</h5>
         <h6>发弹幕最多的是——</h5>
         <div class="row align-items-center mt-3">
           <div class="col-md-4" id="interact_top1">
@@ -241,11 +211,14 @@
             <p class="fs-5 mb-0 mt-2">{{most_interact[2][0]}}</p>
             <div>{{most_interact[2][1]}}</div>
           </div>
+        </div><br>
+        <div class="row gy-5">
+        <div class="col-md-6"><span class="px-2">{{most_interact[3][0]}}</span><br><div>{{most_interact[3][1]}}</div><br><span class="px-2">{{most_interact[4][0]}}</span><br><div>{{most_interact[4][1]}}</div><br><span class="px-2">{{most_interact[5][0]}}</span><div>{{most_interact[5][1]}}</div>
         </div>
-        <div class="fs-6 text-secondary mt-4" id="interact_top10"><span class="px-2">{{most_interact[3][0]}}</span><span class="px-2">{{most_interact[4][0]}}</span><span class="px-2">{{most_interact[5][0]}}</span><span class="px-2">{{most_interact[6][0]}}</span><span class="px-2">{{most_interact[7][0]}}</span><span class="px-2">{{most_interact[8][0]}}</span><span class="px-2">{{most_interact[9][0]}}</span></div>
+        <div class="col-md-6">
+            <span class="px-2">{{most_interact[6][0]}}</span><br><div>{{most_interact[6][1]}}</div><br><span class="px-2">{{most_interact[7][0]}}</span><br><div>{{most_interact[7][1]}}</div><br><span class="px-2">{{most_interact[8][0]}}</span><br><div>{{most_interact[8][1]}}</div><!--<br><span class="px-2">{{most_interact[9][0]}}</span><div>{{most_interact[9][1]}}</div>-->
+        </div>
       </div>
-      <div class="card card-body p-4 text-center my-4 container">
-        <h5>都给我关注<a href="https://space.bilibili.com/617459493" target="_blank">呜米</a>和<a href="https://space.bilibili.com/745493" target="_blank">咩栗</a>啊啊啊——</h5>
       </div>
       <div class="card card-body p-4 text-center my-4 container"><div class="row gy-5">
         <div class="col-md-6">
@@ -307,32 +280,24 @@
           </div>
         </div>
         <a class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#useless_data" role="button">扩展数据</a>
-        <span class="fs-6 text-secondary mx-sm-4">没啥事的人别看</span>
-      </div>
-      <!-- 不复存在的草原组
-      <div class="card card-body p-4 text-center mb-4 container">
-        <p class="mb-0">欢迎有能man加入呜米和咩栗的后援组：</p>
-        <p class="mb-0"><a href="https://space.bilibili.com/674421433" target="_blank">呜米咩栗的草原组</a></p>
-        <p class="mb-0">具体要求请看<a href="https://t.bilibili.com/452538400215603810" target="_blank">这里</a>~</p>
-        <p class="mb-0">请加审核群：295744056！</p>
-      </div>
-      -->
-      <!-- 重生的小天使 -->
-      <div class="card card-body p-4 text-center mb-4 container">
-        <p class="mb-0">感谢辛勤的官方录播man <a class="fw-bold" href="https://space.bilibili.com/4164913" target="_blank">樱木_AoUs</a> 在</p>
-        <p class="mb-0">磨刀暴鲨发18+的群友</p>
-        <p class="mb-0">和 直播间抢着刀片哥</p>
-        <p class="mb-0">的同时 没日没夜的录制上传每日直播录像！</p>
-        <p class="mb-0">录播请认准这里→<a href="https://space.bilibili.com/674622242" target="_blank">MeUmy录播组</a> 其他人的录播都是妖艳贱货。</p>
+        <span class="fs-6 text-secondary mx-sm-4">一些没啥用的统计</span>
       </div>
       <div class="card card-body bg-light p-4 my-4 container text-secondary">
-        <p>注：单推人指的是在呜米直播间挂【小米星】或在咩栗直播间挂【小綿花】牌子的观众</p>
-        <p>有建议？有bug？给<a href="https://space.bilibili.com/1818479062" target="_blank">这个人</a>发私信痛骂他，他什么都会听的</p>
-        <p>本项目已开源，<a href="https://github.com/K-bai/meumy-live-showcase" target="_blank">Github页面</a>。欢迎Star, Fork!</p>
-        <p class="mb-0">本站部分统计灵感及2021年2月10日以前数据来自<a href="https://matsuri.icu/" target="_blank">matsuri.icu</a>。感谢大佬的授权使用！</p>
+        <p>注：单推人指的是在直播间挂对应牌子进行互动的观众</p>
+        <p class="mb-0">本站2021年11月02日以前数据来自<a href="https://matsuri.icu/" target="_blank">matsuri.icu</a>。感谢老师授权使用数据！</p>
+        <p>再次感谢八角老师开源此本项目并提供支持，快去Star, Fork他的<a href="https://github.com/K-bai/meumy-live-showcase" target="_blank">仓库</a>！</p>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
+        <script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script>
+    <script>
+      const aegis = new Aegis({
+        id: 'p3JgoKBVDGw4NWYe78', // 上报 id
+        reportApiSpeed: true, // 接口测速
+        reportAssetSpeed: true, // 静态资源测速
+        spa: true // spa 应用页面跳转的时候开启 pv 计算
+      });
+    </script>
   </body>
 </html>
