@@ -1,7 +1,7 @@
 from db_utils.db_declaration import Danmu, LiveStatus, Gift, SuperChat, Captain, View
 from peewee import SqliteDatabase
 
-path = "db/24393.db" 
+path = "db/24393.db"  #room database file
 
 db = SqliteDatabase(path, pragmas=(
             ('cache_size', -1024 * 64),  # 64MB page-cache.

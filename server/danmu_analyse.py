@@ -362,11 +362,13 @@ DANMU_SAVE_PATH = '/data/meumy_web/data'
 DANMU_LIST_NAME = 'list.json'
 SINGING_CALL_RE = re.compile('\u10e6|\u2600|\u26c8|\u26c5|\\\\.+/')
 VUP_LIST = [
-    {'id': '22384516', 'tag': ['揪米', '小米星'], 'keywords_re': SINGING_CALL_RE},
-    {'id': '8792912', 'tag': ['搞咩嘢', '小綿花'], 'keywords_re': SINGING_CALL_RE}
+    {'id': '24393', 'tag': ['雪狐咕'], 'keywords_re': SINGING_CALL_RE}
 ]
 FORCE_UPDATE = True
 DATE_LIST = None
+
+#强制更新
+#注释掉上面两行再把下面的部分取消注释，修改datetime范围，就会自动检索sqlite对应日期的数据重新分析
 '''
 DATE_LIST = []
 date_range = (datetime.date(2020, 9, 12), datetime.date(2021, 8, 27))
@@ -378,7 +380,7 @@ while cur<=date_range[1]:
 '''
 
 
-
+#间隔触发
 if __name__ == "__main__":
     while True:
         dir_update()
