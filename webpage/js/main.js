@@ -160,7 +160,7 @@ function update_page(){
     document.getElementById("live_start_time").value = live_start_time.format("HH:mm:ss")
     document.getElementById("live_start_time").oninput = validate_time
     //录播跳转
-    document.getElementById("jump_to_recording").href="https://space.bilibili.com/674622242/video?keyword="+encodeURIComponent(moment(app_data.date_n).format("YYYY年M月D日"))
+    document.getElementById("jump_to_recording").href="https://www.bilibili.com/video/BV1Rh411q7Ju"
 
 }
 
@@ -301,7 +301,7 @@ function draw_init() {
                     show: false
                 },
                 min: 0,
-                max:  'dataMax' //动态缩放纵轴
+                max: 'dataMax' //纵坐标量程
             },
             {
                 type: 'value',
@@ -393,7 +393,7 @@ function draw() {
         }
     }
     //设置颜色
-    if (app_data.vup_id == '22384516') option.color=["#C42E30"]
+    if (app_data.vup_id == '24393') option.color=["#4f8bae"]
     else option.color=["#769CD2"]
     //设置数据
     option.series = [
@@ -563,7 +563,7 @@ var app_data = {
         {str: '2021-01-30', val: 20210130}
     ],
     date_n: 20210130,
-    vup_id: '22384516',
+    vup_id: '24393',
     all_hot_words: {
         all: ['???','???','???','???','???','???','???','???','???','???'],
         captain: ['???','???','???','???','???','???'],
@@ -661,3 +661,10 @@ document.getElementById('peak_list_container').addEventListener('shown.bs.collap
 read_file_list()
 //初始化图表
 draw_init()
+
+//监听窗口大小变化
+setTimeout(function (){
+	 window.onresize = function () {
+	 myChart.resize();//重绘图表
+	 }
+},200)
